@@ -1,38 +1,355 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  padding: 50px 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  color: var(--theme-text-primary);
+}
+
+.header__title {
+  margin: 0;
+}
+
+.info-message {
+  width: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 20px;
+}
+
+.info-message__title {
+  margin: 0;
+  color: var(--theme-text-primary);
+}
+
+.profile-name {
+  font-size: 18px;
+}
+
+.profile-card {
+  padding: 20px 15px;
+}
+
+.code-card {
+  padding: 20px 15px;
+}
+
+.profile-name {
+  font-size: 16px;
+}
+
+.title {
   color: white;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.p {
+  color: var(--theme-text-primary);
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  height: 45px;
+  width: 100px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  margin: 0 30px;
+}
+
+.profile-icon {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 20px;
+  padding: 10px;
+  color: var(--theme-text-primary);
+}
+
+.profile-position {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.navbar {
+  padding: 30px;
+}
+
+.back {
+  color: var(--theme-text-primary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.data {
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.data:hover {
+  transform: scale(1.1);
+  text-shadow: 2px 2px 8px #ccc;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    width: 90%;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .input {
+    padding-left: 30px;
+    align-items: flex-start;
+    width: 70%;
+  }
+
+  .info-message {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .btn {
+    width: 80px;
+    height: 40px;
+  }
+
+  .profile-icon {
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile-name {
+    font-size: 16px;
+  }
+
+  .profile-container {
+    margin: 0 10px;
+    padding-top: 20px;
+  }
+
+  .navbar {
+    padding: 15px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .glow-on-hover {
+    width: 180px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 75%;
+  }
+
+  .info-message {
+    width: 75%;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .btn {
+    width: 90px;
+    height: 42px;
+  }
+
+  .profile-icon {
+    height: 90px;
+    width: 90px;
+  }
+
+  .profile-name {
+    font-size: 18px;
+  }
+
+  .profile-container {
+    margin: 0 20px;
+    padding-top: 25px;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .container {
+    justify-content: space-around;
+  }
+
+  .glow-on-hover {
+    width: 200px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    width: 60%;
+  }
+
+  .input {
+    padding-left: 40px;
+    align-items: flex-start;
+    width: 70%;
+  }
+
+  .info-message {
+    width: 60%;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .btn {
+    width: 95px;
+    height: 44px;
+  }
+
+  .profile-icon {
+    height: 95px;
+    width: 95px;
+  }
+
+  .profile-name {
+    font-size: 19px;
+  }
+
+  .profile-container {
+    margin: 0 25px;
+    padding-top: 28px;
+  }
+
+  .navbar {
+    padding: 25px;
+  }
+
+  .container {
+    justify-content: space-evenly;
+  }
+
+  .glow-on-hover {
+    width: 210px;
+    height: 49px;
   }
 }

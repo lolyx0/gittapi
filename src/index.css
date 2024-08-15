@@ -1,13 +1,89 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+:root {
+  font-family: "Lucida Console", "Courier New", monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --theme-primary-background-color: rgb(20 29 48);
+  --theme-secondary-background-color: rgb(29 42 71);
+  --theme-darker-background-color: #141d2f;
+  --theme-secondary-color: rgb(6 112 236);
+  --theme-primary-color: #3e5258b9;
+  --theme-texteme-primary-background-color-primary: rgb(253 255 255);
+  --theme-text-secondary: #4c6a9b;
+  --theme-text-third: #506971;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (prefers-color-scheme: light) {
+  :root {
+    --th: rgb(240, 242, 245);
+    --theme-secondary-background-color: rgb(255, 255, 255);
+    --theme-darker-background-color: rgb(225, 227, 230);
+    --theme-secondary-color: rgb(100, 149, 237);
+    --theme-primary-color: rgb(25, 118, 210);
+    --theme-text-primary: rgb(23, 43, 77);
+    --theme-text-secondary: rgb(70, 70, 70);
+    --theme-text-third: rgb(105, 105, 105);
+  }
 }
+
+
+.dark {
+  --theme-primary-background-color: rgb(20 29 48);
+  --theme-secondary-background-color: rgb(29 42 71);
+  --theme-darker-background-color: rgb(20 29 47);
+  --theme-secondary-color: rgb(6 112 236);
+  --theme-primary-color: rgb(2 121 255);
+  --theme-text-primary: rgb(253 255 255);
+  --theme-text-secondary: rgb(76 106 155);
+  --theme-text-third: rgb(80 105 113);
+
+  color: var(--theme-text-white-primary);
+  background-color: var(--theme-primary-background-color);
+}
+
+.light {
+  --theme-primary-background-color: rgb(240, 242, 245);
+  --theme-secondary-background-color: rgb(255, 255, 255);
+  --theme-darker-background-color: rgb(225, 227, 230);
+  --theme-secondary-color: rgb(100, 149, 237);
+  --theme-primary-color: rgb(25, 118, 210);
+  --theme-text-primary: rgb(23, 43, 77);
+  --theme-text-secondary: rgb(70, 70, 70);
+  --theme-text-third: rgb(105, 105, 105);
+
+  color: var(--theme-text-white-primary);
+  background-color: var(--theme-primary-background-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--theme-text-primary);
+}
+
+a:hover {
+  color: var(--theme-text-secondary);
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+#root {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
